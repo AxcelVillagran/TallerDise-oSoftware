@@ -47,12 +47,13 @@ public class Bank {
             System.out.println("Realizar transaccion");
             System.out.println("------------------------------------");
              moneyMakeTransaction();
-	     writeTransaction();
+             writeTransaction();
         break;
         case 3:
             System.out.println("Retirar dinero");
             System.out.println("------------------------------------");
              moneyWithdrawal();
+             writeWithdrawal();
         break;
         case 4:
             System.out.println("Ver Usuarios");
@@ -109,7 +110,7 @@ public class Bank {
     public static void writeWithdrawal(){
     	try(BufferedWriter br = new BufferedWriter(new FileWriter("Log.txt",true))){
     		Calendar cal = Calendar.getInstance();
-    		br.write("Deposito "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)+"\n");
+    		br.write("Retiro "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)+"\n");
     	}catch(IOException e){
     		
     	}
