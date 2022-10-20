@@ -106,5 +106,13 @@ public class Bank {
     		
     	}
     }
+    public static void writeWithdrawal(){
+    	try(BufferedWriter br = new BufferedWriter(new FileWriter("Log.txt",true))){
+    		Calendar cal = Calendar.getInstance();
+    		br.write("Deposito "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)+"\n");
+    	}catch(IOException e){
+    		
+    	}
+    }
     
 }
