@@ -2,6 +2,10 @@ package com.bank;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Calendar;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class Bank {
 	static final int EXIT = 5;
@@ -42,7 +46,8 @@ public class Bank {
         case 2:
             System.out.println("Realizar transaccion");
             System.out.println("------------------------------------");
-             moneyMakeTransaction(); 
+             moneyMakeTransaction();
+	     writeTransaction();
         break;
         case 3:
             System.out.println("Retirar dinero");
@@ -92,6 +97,14 @@ public class Bank {
             System.out.println(u);
         }
         System.out.println("------------------------------------");
+    }
+    public static void writeTransaction(){
+    	try(BufferedWriter br = new BufferedWriter(new FileWriter("Log.txt",true))){
+    		Calendar cal = Calendar.getInstance();
+    		br.write("Deposito "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+":"+cal.get(Calendar.SECOND)+"\n");
+    	}catch(IOException e){
+    		
+    	}
     }
     
 }
